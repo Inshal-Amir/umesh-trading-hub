@@ -13,7 +13,7 @@ export default function AuthScreen({ onLogin }: AuthScreenProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const stored = localStorage.getItem('admin_password');
+    const stored = localStorage.getItem('admin_password') || 'admin123';
     if (password === stored) {
       sessionStorage.setItem('isLoggedIn', 'true');
       onLogin();
