@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold: #F4B400;
+  --color-gold-hover: #D69E00;
+  --color-teal: #3DDAD7;
+  --color-teal-hover: #2BBAB7;
+  --color-red: #F45B69;
+  --color-red-hover: #D84250;
+  
+  /* Map standard tailwind gray colors to our dynamic CSS variables */
+  --color-gray-900: var(--ui-900);
+  --color-gray-800: var(--ui-800);
+  --color-gray-700: var(--ui-700);
+  --color-gray-600: var(--ui-600);
+  --color-gray-500: var(--ui-500);
+  --color-gray-400: var(--ui-400);
+  --color-gray-300: var(--ui-300);
+  --color-gray-200: var(--ui-200);
+  --color-gray-100: var(--ui-100);
+  
+  /* Semantic overrides */
+  --color-white: var(--ui-white);
+  --color-black: var(--ui-black);
+
+  --color-background: var(--ui-900);
+  --color-foreground: var(--ui-100);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* LIGHT Theme */
+  --ui-900: #F3F4F6; /* background */
+  --ui-800: #FFFFFF; /* cards / blocks */
+  --ui-700: #E5E7EB; /* borders */
+  --ui-600: #D1D5DB; /* inner borders / darker fills */
+  --ui-500: #9CA3AF; /* muted text / icons */
+  --ui-400: #6B7280; /* subtext */
+  --ui-300: #4B5563; /* emphasized subtext */
+  --ui-200: #374151; /* secondary text */
+  --ui-100: #111827; /* main text / darkest elements */
+  
+  --ui-white: #111827; /* Inverse: text-white becomes slate-900 */
+  --ui-black: #F9FAFB; /* Inverse: bg-black becomes slate-50 */
+  
+  --background: var(--ui-900);
+  --foreground: var(--ui-100);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+.dark {
+  /* DARK Theme (Original UMESH Theme) */
+  --ui-900: #0B1220;
+  --ui-800: #131E33;
+  --ui-700: #1A2844;
+  --ui-600: #293856;
+  --ui-500: #465578;
+  --ui-400: #8892B0;
+  --ui-300: #A8B2D0;
+  --ui-200: #CCD6F6;
+  --ui-100: #F8F9FA;
+  
+  --ui-white: #FFFFFF;
+  --ui-black: #000000;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: var(--ui-900);
+  --foreground: var(--ui-100);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
